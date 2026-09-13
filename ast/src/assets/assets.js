@@ -123,7 +123,7 @@ export const ownerMenuLinks = [
 
 export const dummyUserData = {
 	_id: '6847f7cab3d8daecdb517095',
-	name: 'GreatStack',
+	name: 'AST Admin',
 	email: 'admin@example.com',
 	role: 'owner',
 	image: user_profile,
@@ -138,7 +138,7 @@ export const dummyCarData = [
 		image: car_image1,
 		year: 2006,
 		category: 'SUV',
-		seating_capacity: 4,
+		seats: 4,
 		fuel_type: 'Hybrid',
 		transmission: 'Semi-Automatic',
 		pricePerDay: 300,
