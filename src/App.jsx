@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import CarDetails from './pages/CarDetails';
 import Cars from './pages/cars';
@@ -20,8 +19,6 @@ const App = () => {
 				<Route path="/car-details/:id" element={<CarDetails />} />
 				<Route path="/my-bookings" element={<MyBookings />} />
 			</Routes>
-
-			{!isOwnerPath && <Footer />}
 		</>
 	);
 };
