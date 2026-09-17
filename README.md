@@ -112,16 +112,28 @@ Vite will print the local development URL in the terminal.
 ### Available scripts
 
 ```bash
+<<<<<<< HEAD
 bun run dev      # Start the Vite development server
 bun run lint     # Run ESLint across the project
 bun run build    # Create a production build
 bun run preview  # Preview the production build locally
+=======
+npm run dev      # Start the Vite development server
+npm run lint     # Run ESLint across the project
+npm run build    # Create a production build
+npm run preview  # Preview the production build locally
+>>>>>>> 1b3db55 (intializing vercel)
 ```
 
 ## Roadmap
 
+<<<<<<< HEAD
 1. Complete the customer-facing catalog, vehicle details, and booking pages.
 2. Implement the owner workflow screens and protected routes.
+=======
+1. Build the customer-facing pages and responsive layout system.
+2. Add client-side routing for customer and owner workflows.
+>>>>>>> 1b3db55 (intializing vercel)
 3. Replace fixture data with a validated backend API and persistent database.
 4. Implement authentication, role-based authorization, and protected owner routes.
 5. Add date-aware availability rules and transactional booking creation.
