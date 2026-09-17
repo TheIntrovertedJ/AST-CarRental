@@ -1,9 +1,17 @@
+import Banner from '../components/Banner';
+import FeaturedSection from '../components/FeaturedSection';
 import Hero from '../components/hero';
+import Newsletter from '../components/Newsletter';
+import Testimonial from '../components/Testimonial';
 
 const Home = () => {
 	return (
 		<>
 			<Hero />
+			<FeaturedSection />
+			<Banner />
+			<Testimonial />
+			<Newsletter />
 		</>
 	);
 };
