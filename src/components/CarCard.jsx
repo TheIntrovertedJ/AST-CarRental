@@ -1,7 +1,7 @@
 import { assets } from '../assets/assets';
 
 const CarCard = ({ car }) => {
-	const currencySymbol = import.meta.env.VITE_CURRENCY;
+	const currencySymbol = import.meta.env.example.VITE_CURRENCY;
 	return (
 		// Card Container
 		<div className="group rounded-xl overflow-hidden shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer">
