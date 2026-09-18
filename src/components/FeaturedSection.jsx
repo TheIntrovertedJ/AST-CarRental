@@ -21,7 +21,7 @@ const FeaturedSection = () => {
 				{/* Render featured vehicles here */}
 
 				{dummyCarData.slice(0, 6).map((car) => (
-					<div key={car._id}>
+					<div key={car._id} onClick={() => navigate(`/car-details/${car._id}`)}>
 						<CarCard car={car} />
 					</div>
 				))}
