@@ -32,6 +32,7 @@ const Testimonial = () => {
 
 	return (
 		<div className="py-28 px-6 md:px-16 lg:px-24 xl:px-44">
+			{/* Testimonial Title */}
 			<Title
 				title="What Our Customers Say"
 				subtitle="Discover why discerning travelers choose AST RENTAL for their luxury accomodations around the globe"

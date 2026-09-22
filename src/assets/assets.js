@@ -41,7 +41,7 @@ import upload_icon from './upload_icon.svg';
 import user_profile from './user_profile.png';
 import users_icon from './users_icon.svg';
 
-export const cityList = ['New York', 'Los Angeles', 'Houston', 'Chicago'];
+export const cityList = ['Houston'];
 
 export const assets = {
 	logo,
