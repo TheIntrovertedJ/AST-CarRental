@@ -1,24 +1,28 @@
+import { Link } from 'react-router-dom';
 import { assets } from '../assets/assets';
 
 const CarCard = ({ car }) => {
 	const currencySymbol = import.meta.env.VITE_CURRENCY || '$';
 	return (
 		// Card Container
-		<div className="group rounded-xl overflow-hidden shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer">
-			<div className="relative overflow-hidden h-48">
+		<Link
+			to={`/car-details/${car._id}`}
+			className="group block overflow-hidden rounded-xl shadow-lg transition-all duration-500 hover:-translate-y-1"
+		>
+			<div className="relative h-48 overflow-hidden">
 				<img
 					src={car.image}
-					alt="car image"
-					className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+					alt=""
+					className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
 				/>
 
 				{car.isAvailable && (
-					<p className="absolute top-4 left-4 bg-green-700/90 text-white text-xs px-2.5 py-1 rounded-full">
+					<p className="absolute top-4 left-4 rounded-full bg-primary/90 px-2.5 py-1 text-xs text-white">
 						Available Now
 					</p>
 				)}
 
-				<div className="absolute bottom-4 right-4 bg-black/80 text-white background-blur-sm px-3 py-2 rounded-lg">
+				<div className="absolute right-4 bottom-4 rounded-lg bg-black/80 px-3 py-2 text-white backdrop-blur-sm">
 					<span className="font-semibold">
 						{currencySymbol}
 						{car.pricePerDay}
@@ -28,7 +32,7 @@ const CarCard = ({ car }) => {
 			</div>
 
 			<div className="p-4 sm:p-5">
-				<div className="flex items-center justify-between mb-2">
+				<div className="mb-2 flex items-center justify-between">
 					<div>
 						<h3 className="text-lg font-medium">
 							{car.brand} {car.model}
@@ -42,28 +46,28 @@ const CarCard = ({ car }) => {
 				{/* Car Details */}
 
 				<div className="mt-4 grid grid-cols-2 gap-y-2 text-gray-600">
-					<div className="flex items-center text-sm text-muted-foreground">
-						<img src={assets.users_icon} alt="" className="h-4 mr-2" />
+					<div className="text-muted-foreground flex items-center text-sm">
+						<img src={assets.users_icon} alt="" className="mr-2 h-4" />
 						<span>{car.seats} Seats</span>
 					</div>
 
-					<div className="flex items-center text-sm text-muted-foreground">
-						<img src={assets.fuel_icon} alt="" className="h-4 mr-2" />
+					<div className="text-muted-foreground flex items-center text-sm">
+						<img src={assets.fuel_icon} alt="" className="mr-2 h-4" />
 						<span>{car.fuel_type}</span>
 					</div>
 
-					<div className="flex items-center text-sm text-muted-foreground">
-						<img src={assets.car_icon} alt="" className="h-4 mr-2" />
+					<div className="text-muted-foreground flex items-center text-sm">
+						<img src={assets.car_icon} alt="" className="mr-2 h-4" />
 						<span>{car.transmission}</span>
 					</div>
 
-					<div className="flex items-center text-sm text-muted-foreground">
-						<img src={assets.location_icon} alt="" className="h-4 mr-2" />
+					<div className="text-muted-foreground flex items-center text-sm">
+						<img src={assets.location_icon} alt="" className="mr-2 h-4" />
 						<span>{car.location}</span>
 					</div>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 };
 

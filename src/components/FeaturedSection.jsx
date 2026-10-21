@@ -1,14 +1,12 @@
-import { useNavigate } from 'react-router-dom';
 import { assets, dummyCarData } from '../assets/assets';
 import CarCard from './CarCard';
 import Title from './Title';
+import Button from './ui/Button';
 
 const FeaturedSection = () => {
-	const navigate = useNavigate();
-
 	return (
 		// Section for displaying featured vehicles
-		<div className="flex flex-col items-center px-6 md:px-16 lg:px-24 xl:px-32 py-24">
+		<div className="flex flex-col items-center px-6 py-24 md:px-16 lg:px-24 xl:px-32">
 			<div>
 				{/* Title for the featured vehicles section */}
 				<Title
@@ -17,25 +15,22 @@ const FeaturedSection = () => {
 				/>
 			</div>
 
-			<div className="mt-18 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+			<div className="mt-18 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
 				{/* Render featured vehicles here */}
 
 				{dummyCarData.slice(0, 6).map((car) => (
-					<div key={car._id} onClick={() => navigate(`/car-details/${car._id}`)}>
-						<CarCard car={car} />
-					</div>
+					<CarCard key={car._id} car={car} />
 				))}
 			</div>
 
-			<button
-				onClick={() => {
-					navigate('/cars');
-					scrollTo(0, 0);
-				}}
-				className="flex items-center justify-center gap-2 px-6 py-2 border border-borderColor hover:bg-gray-50 rounded-md mt-18 cursor-pointer"
+			<Button
+				variant="secondary"
+				to="/cars"
+				onClick={() => scrollTo(0, 0)}
+				className="mt-18"
 			>
-				Explore more cars <img src={assets.arrow_icon} alt="arrow" />
-			</button>
+				Explore more cars <img src={assets.arrow_icon} alt="" />
+			</Button>
 		</div>
 	);
 };

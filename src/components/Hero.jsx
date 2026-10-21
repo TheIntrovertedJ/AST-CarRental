@@ -1,24 +1,31 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { assets, cityList } from '../assets/assets';
-
-// import mainCar from '../assets/main_car.png';
 
 const Hero = () => {
 	const [pickupLocation, setPickupLocation] = useState('');
 	const [pickupDate, setPickupDate] = useState('');
 	const [returnDate, setReturnDate] = useState('');
+	const navigate = useNavigate();
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		navigate('/cars');
+	};
 
 	return (
-		<div className="h-screen flex flex-col items-center justify-center gap-14 bg-light text-center">
-			<h1 className="text-4xl md:text-5xl font-semibold">
+		<div className="flex h-screen flex-col items-center justify-center gap-14 bg-light text-center">
+			<h1 className="text-4xl font-semibold md:text-5xl">
 				Welcome to AST Car Rental
 			</h1>
 			<p className="text-gray-500">
 				Find the perfect car for your next adventure
 			</p>
 
-			<form className="flex flex-col md:flex-row items-start md:items-center justify-between p-6 rounded-lg md:rounded-full w-full max-w-80 md:max-w-200 bg-white shadow-[0px_8px_20px_rgba(0,0,0,0.1)]">
-				<div className="flex flex-col md:flex-row items-start md:items-center gap-10 min:ml-8">
+			<form
+				className="flex w-full max-w-80 flex-col items-start justify-between rounded-lg bg-white p-6 shadow-[0px_8px_20px_rgba(0,0,0,0.1)] md:max-w-200 md:flex-row md:items-center md:rounded-full"
+				onSubmit={handleSubmit}
+			>
+				<div className="flex flex-col items-start gap-10 md:flex-row md:items-center">
 					<div className="flex flex-col items-start gap-2">
 						<select
 							required
@@ -63,7 +70,7 @@ const Hero = () => {
 				</div>
 				<button
 					type="submit"
-					className="flex items-center justify-center gap-1 px-9 py-3 max-sm:mt-4 bg-green-800 hover:bg-green-700 cursor-pointer text-white rounded-full"
+					className="flex cursor-pointer items-center justify-center gap-1 rounded-full bg-primary px-9 py-3 text-white hover:bg-primary-dull max-sm:mt-4"
 				>
 					<img
 						src={assets.search_icon}

@@ -1,17 +1,15 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { assets, dummyCarData } from '../assets/assets';
 import CarCard from '../components/CarCard';
 import Title from '../components/Title';
 
 const Cars = () => {
-	const [input, setInput] = useState();
-	const navigate = useNavigate();
+	const [input, setInput] = useState('');
 
 	return (
 		// Main Container
 		<div>
-			<div className="flex flex-col items-center py-20 bg-light max-md:px-4">
+			<div className="flex flex-col items-center bg-light py-20 max-md:px-4">
 				<Title
 					title="Available Cars"
 					subtitle="Browse our fleet of premium vehicles available for your next adventure"
@@ -19,33 +17,28 @@ const Cars = () => {
 
 				{/* Search and Filter */}
 
-				<div className="flex items-center bg-white px-4 mt-6 max-w-140 w-full h-12 rounded-full shadow">
-					<img src={assets.search_icon} alt="" className="w-4.5 h-4.5 mr-2" />
+				<div className="mt-6 flex h-12 w-full max-w-140 items-center rounded-full bg-white px-4 shadow">
+					<img src={assets.search_icon} alt="" className="mr-2 h-4.5 w-4.5" />
 					<input
 						onClick={(e) => setInput(e.target.value)}
 						value={input}
 						type="text"
 						placeholder="Search cars..."
-						className="w-full h-full outline-none text-gray-500"
+						className="h-full w-full text-gray-500 outline-none"
 					/>
-					<img src={assets.filter_icon} alt="" className="w-4.5 h-4.5 ml-2" />
+					<img src={assets.filter_icon} alt="" className="ml-2 h-4.5 w-4.5" />
 				</div>
 			</div>
 
 			{/* Car Listings */}
-			<div className="px-6 md:px-16 lg:px-24 xl:px-32 mt-10">
-				<p className="text-gray-500 xl:px-20 max-w-7xl mx-auto">
+			<div className="mt-10 px-6 md:px-16 lg:px-24 xl:px-32">
+				<p className="mx-auto max-w-7xl text-gray-500 xl:px-20">
 					Showing Available Cars
 				</p>
 
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-4 xl:px-20 max-w-7xl mx-auto">
-					{dummyCarData.map((car, index) => (
-						<div
-							key={index}
-							onClick={() => navigate(`/car-details/${car._id}`)}
-						>
-							<CarCard car={car} />
-						</div>
+				<div className="mx-auto mt-4 grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:px-20">
+					{dummyCarData.map((car) => (
+						<CarCard key={car._id} car={car} />
 					))}
 				</div>
 			</div>
